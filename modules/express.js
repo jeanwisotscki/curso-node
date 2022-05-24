@@ -1,25 +1,44 @@
 const express = require("express");
-const app = express();
+const UserModel = require("../src/models/user.model");
 const port = 8080;
 
-app.get("/home", (req, res) => {
-  res.contentType("text/html");
-  res.status(200).send("<h1>Hello World</h1>");
+const app = express();
+app.use(express.json());
+
+// endpoints
+
+// buscar usuários
+app.get("/users", async (req, res) => {
+  try {
+    const users = await UserModel.find({});
+
+    res.status(200).json(users);
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
 });
 
-app.get("/users", (req, res) => {
-  const users = [
-    {
-      name: "jean carlos",
-      email: "jean1wisotscki@gmail.com",
-    },
-    {
-      name: "carlos jean",
-      email: "wisotsckijean1@gmail.com",
-    },
-  ];
-  res.contentType("application/json");
-  res.status(200).json(users);
+// buscar usuário por id
+app.get("/users/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const user = await UserModel.findById(id);
+
+    res.status(200).json(user);
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
+});
+
+// criar usuário
+app.post("/users", async (req, res) => {
+  try {
+    const user = await UserModel.create(req.body);
+
+    res.status(201).json(user);
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
 });
 
 app.listen(port, () => {
