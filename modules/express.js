@@ -41,6 +41,30 @@ app.post("/users", async (req, res) => {
   }
 });
 
+// editar usuário
+app.patch("/users/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const user = await UserModel.findByIdAndUpdate(id, req.body, { new: true });
+
+    res.status(200).json(user);
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
+});
+
+// delete usuário
+app.delete("/users/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const user = await UserModel.findByIdAndRemove(id);
+
+    res.status(200).json(user);
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
+});
+
 app.listen(port, () => {
   console.log("Rodando com express na porta", port);
 });
