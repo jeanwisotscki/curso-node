@@ -5,6 +5,9 @@ const port = 8080;
 const app = express();
 app.use(express.json());
 
+app.set("view engine", "ejs");
+app.set("views", "./src/views");
+
 // middleware com express
 /* são funções que são usadas antes de qualquer requisição */
 app.use((req, res, next) => {
@@ -15,6 +18,12 @@ app.use((req, res, next) => {
 });
 
 // endpoints
+// usar view
+app.get("/views/users", async (req, res) => {
+  const users = await UserModel.find({});
+  res.render("index", { users });
+});
+
 // buscar usuários
 app.get("/users", async (req, res) => {
   try {
