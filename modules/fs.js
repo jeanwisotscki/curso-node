@@ -10,37 +10,37 @@ const path = require("path");
 // });
 
 // Criar um arquivo
-fs.writeFile(
-  path.join(__dirname, "/test", "teste.html"),
-  "hello node!",
-  (error) => {
-    if (error) {
-      return console.log("Erro: ", error);
-    }
-    console.log("Arquivo criado");
+// fs.writeFile(
+//   path.join(__dirname, "/test", "teste.html"),
+//   "hello node!",
+//   (error) => {
+//     if (error) {
+//       return console.log("Erro: ", error);
+//     }
+//     console.log("Arquivo criado");
 
-    // Adicionar à um arquivo
-    fs.appendFile(
-      path.join(__dirname, "/test", "test.txt"),
-      " hello word!",
-      (error) => {
-        if (error) {
-          return console.log("Erro: ", error);
-        }
-        console.log("Arquivo modificado");
-      }
-    );
+//     // Adicionar à um arquivo
+//     fs.appendFile(
+//       path.join(__dirname, "/test", "test.txt"),
+//       " hello word!",
+//       (error) => {
+//         if (error) {
+//           return console.log("Erro: ", error);
+//         }
+//         console.log("Arquivo modificado");
+//       }
+//     );
 
-    // Ler um arquivo
-    fs.readFile(
-      path.join(__dirname, "/test", "test.txt"),
-      "utf8",
-      (error, data) => {
-        if (error) {
-          return console.log("Erro: ", error);
-        }
-        console.log(data);
-      }
-    );
-  }
-);
+//     // Ler um arquivo
+//     fs.readFile(
+//       path.join(__dirname, "/test", "test.txt"),
+//       "utf8",
+//       (error, data) => {
+//         if (error) {
+//           return console.log("Erro: ", error);
+//         }
+//         console.log(data);
+//       }
+//     );
+//   }
+// );
