@@ -1,0 +1,42 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>componentização do html</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(90deg, #acf, #bfc);
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    }
+
+    .container {
+      width: 560px;
+      background-color: #eee;
+      padding: 2rem;
+      border-radius: 2rem;
+    }
+
+    .content h3 {
+      color: rgb(118, 158, 219);
+    }
+    .content p {
+      color: rgb(83, 83, 83);
+      margin-bottom: 1rem;
+    }
+    .content p:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
